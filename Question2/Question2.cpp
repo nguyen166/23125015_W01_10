@@ -33,6 +33,14 @@ void print(Node* head) {
     cout << endl;
 }
 
+void destroy(Node*& head) {
+    while (head) {
+        Node* tmp = head;
+        head = head->next;
+        delete tmp;
+    }
+}
+
 int main() {
     while (1) {
         system("cls");
@@ -47,6 +55,8 @@ int main() {
             cout << "Splited into: " << endl;
             print(head);
             print(odd);
+            destroy(head);
+            destroy(odd);
             return 0;
         }
         else if (choice == 2) {
@@ -57,6 +67,8 @@ int main() {
             merge(head, odd);
             cout << "Merged into: " << endl;
             print(head);
+            destroy(head);
+            destroy(odd);
             return 0;
         }
         else {
